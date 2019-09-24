@@ -1,0 +1,9 @@
+language: shell
+
+os: windows
+
+env:
+  - GOVERSION=1.12.9
+ 
+script:
+  - choco install -y golang -version $GOVERSION
