@@ -3,7 +3,10 @@ language: shell
 os: windows
 
 env:
-  - GOVERSION=1.12.9
+  - GO_VERSION=1.12.9
+  - PODMAN_VERSION=1.5.1
  
 script:
-  - choco install -y golang -version $GOVERSION
+  - choco install -y golang -version $GO_VERSION
+  - choco install -y git
+  - git clone -q --branch=v$PODMAN_VERSION --single-branch https://github.com/containers/libpod.git :\gopath\src\github.com\containers\libpod
