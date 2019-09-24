@@ -3,8 +3,9 @@ language: shell
 os: windows
 
 env:
-  - GO_VERSION=1.12.9
-  - PODMAN_VERSION=1.5.1
+  global:
+    - GO_VERSION=1.12.9
+    - PODMAN_VERSION=1.5.1
  
 script:
   - choco install -y golang -version $GO_VERSION
