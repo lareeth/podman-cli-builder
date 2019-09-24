@@ -11,4 +11,5 @@ script:
   - choco install -y golang -version $GO_VERSION
   - choco install make
   - git clone -q --branch=v$PODMAN_VERSION --single-branch https://github.com/containers/libpod.git "C:\gopath\src\github.com\containers\libpod"
+  - cd "C:\gopath\src\github.com\containers\libpod"
   - make podman-remote-windows-release
