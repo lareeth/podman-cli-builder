@@ -1,5 +1,8 @@
-language: minimal
+language: go
 dist: bionic
+
+go:
+- 1.12.x
 
 env:
   global:
@@ -28,9 +31,6 @@ addons:
     - pkg-config
     - runc
     - uidmap
-  snaps:
-    - name: go
-      confinement: classic
 
 script:
   - git clone https://github.com/containers/libpod/ $GOPATH/src/github.com/containers/libpod
