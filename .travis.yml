@@ -39,7 +39,6 @@ script:
   - git clone -q --branch=v$PODMAN_VERSION --single-branch https://github.com/containers/libpod/ $GOPATH/src/github.com/containers/libpod
   - cd $GOPATH/src/github.com/containers/libpod
   - make podman-remote-windows-release
-  - ls -lah bin
 
 before_deploy:
   - git tag $PODMAN_VERSION
@@ -48,6 +47,7 @@ deploy:
   skip_cleanup: true
   provider: releases
   api_key: $GITHUB_TOKEN
+  file_glob: true
   file: "*.zip"
   overwrite: true
   on:
