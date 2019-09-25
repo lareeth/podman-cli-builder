@@ -29,7 +29,8 @@ addons:
     - runc
     - uidmap
   snaps:
-    - go
+    - name: go
+      confinement: classic
 
 script:
   - git clone https://github.com/containers/libpod/ $GOPATH/src/github.com/containers/libpod
