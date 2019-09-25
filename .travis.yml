@@ -6,7 +6,6 @@ go:
 
 env:
   global:
-    - GO_VERSION=1.12.9
     - PODMAN_VERSION=1.5.1
 
 addons:
@@ -33,6 +32,7 @@ addons:
     - uidmap
 
 script:
-  - git clone https://github.com/containers/libpod/ $GOPATH/src/github.com/containers/libpod
+  - git clone -q --branch=v$PODMAN_VERSION --single-branch https://github.com/containers/libpod/ $GOPATH/src/github.com/containers/libpod
   - cd $GOPATH/src/github.com/containers/libpod
   - make podman-remote-windows-release
+  - ls -lah bin
