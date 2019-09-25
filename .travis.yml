@@ -11,7 +11,6 @@ addons:
     packages:
     - btrfs-tools
     - git
-    - golang-go
     - go-md2man
     - iptables
     - libassuan-dev
@@ -29,9 +28,10 @@ addons:
     - pkg-config
     - runc
     - uidmap
+  snaps:
+    - go
 
 script:
-  - choco install -y golang -version $GO_VERSION
   - git clone https://github.com/containers/libpod/ $GOPATH/src/github.com/containers/libpod
   - cd $GOPATH/src/github.com/containers/libpod
   - make podman-remote-windows-release
