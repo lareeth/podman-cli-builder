@@ -1,14 +1,36 @@
 language: shell
 
-os: windows
-
 env:
   global:
     - GO_VERSION=1.12.9
     - PODMAN_VERSION=1.5.1
- 
+
+addons:
+  apt:
+    packages:
+    - btrfs-tools
+    - git
+    - golang-go
+    - go-md2man
+    - iptables
+    - libassuan-dev
+    - libc6-dev
+    - libdevmapper-dev
+    - libglib2.0-dev
+    - libgpgme-dev
+    - libgpg-error-dev
+    - libostree-dev
+    - libprotobuf-dev
+    - libprotobuf-c0-dev
+    - libseccomp-dev
+    - libselinux1-dev
+    - libsystemd-dev
+    - pkg-config
+    - runc
+    - uidmap
+
 script:
   - choco install -y golang -version $GO_VERSION
-  - git clone -q --branch=v$PODMAN_VERSION --single-branch https://github.com/containers/libpod.git "C:\gopath\src\github.com\containers\libpod"
-  - cd "C:\gopath\src\github.com\containers\libpod"
-  - go build -tags "remoteclient containers_image_openpgp exclude_graphdriver_devicemapper" -o "build\podman.exe"
+  - git clone https://github.com/containers/libpod/ $GOPATH/src/github.com/containers/libpod
+  - cd $GOPATH/src/github.com/containers/libpod
+  - make podman-remote-windows-release
