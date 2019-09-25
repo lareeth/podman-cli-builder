@@ -1,4 +1,5 @@
-language: shell
+language: minimal
+dist: bionic
 
 env:
   global:
