@@ -36,3 +36,14 @@ script:
   - cd $GOPATH/src/github.com/containers/libpod
   - make podman-remote-windows-release
   - ls -lah bin
+
+before_deploy:
+  - git tag $PODMAN_VERSION
+
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key: $GITHUB_TOKEN
+  file: bin/podman-remote-windows.exe
+  on:
+    branch: master
