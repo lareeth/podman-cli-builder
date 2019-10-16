@@ -10,7 +10,7 @@ go:
 
 env:
   global:
-    - PODMAN_VERSION=1.6.0
+    - PODMAN_VERSION=1.6.1-rc1
 
 addons:
   apt:
@@ -47,6 +47,7 @@ deploy:
   skip_cleanup: true
   provider: releases
   api_key: $GITHUB_TOKEN
+  name: $PODMAN_VERSION
   file_glob: true
   file: "*.zip"
   overwrite: true
