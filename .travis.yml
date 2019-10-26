@@ -39,6 +39,7 @@ script:
   - git clone -q --branch=v$PODMAN_VERSION --single-branch https://github.com/containers/libpod/ $GOPATH/src/github.com/containers/libpod
   - cd $GOPATH/src/github.com/containers/libpod
   - make podman-remote-windows-release
+  - sha256sum *.zip > chucksum.txt 
 
 before_deploy:
   - git tag $PODMAN_VERSION
@@ -49,7 +50,9 @@ deploy:
   api_key: $GITHUB_TOKEN
   name: v$PODMAN_VERSION
   file_glob: true
-  file: "*.zip"
+  file:
+    - "*.zip"
+    - checksum.txt
   overwrite: true
   on:
     branch: master
