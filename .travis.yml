@@ -34,6 +34,7 @@ addons:
     - pkg-config
     - runc
     - uidmap
+    - pandoc
 
 script:
   - git clone -q --branch=v$PODMAN_VERSION --single-branch https://github.com/containers/libpod/ $GOPATH/src/github.com/containers/libpod
