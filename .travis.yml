@@ -39,6 +39,7 @@ script:
   - git clone -q --branch=v$PODMAN_VERSION --single-branch https://github.com/containers/libpod/ $GOPATH/src/github.com/containers/libpod
   - cd $GOPATH/src/github.com/containers/libpod
   - make podman-remote-windows-release
+  - ls -lah
   - CHECKSUM=$(sha256sum *.zip | awk '{ print $1 }')
 
 before_deploy:
