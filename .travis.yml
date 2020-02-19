@@ -10,7 +10,7 @@ go:
 
 env:
   global:
-    - PODMAN_VERSION=1.7.0
+    - PODMAN_VERSION=1.8.0-rc1
 
 addons:
   apt:
