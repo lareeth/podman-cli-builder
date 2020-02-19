@@ -36,8 +36,8 @@ addons:
     - uidmap
 
 before_install:
-  - wget https://github.com/jgm/pandoc/releases/download/2.2.3.2/pandoc-2.2.3.2-1-amd64.deb
-  - sudo dpkg -i pandoc-2.2.3.2-1-amd64.deb
+  - wget https://github.com/jgm/pandoc/releases/download/2.9.2/pandoc-2.9.2-1-amd64.deb
+  - sudo dpkg -i pandoc-2.9.2-1-amd64.deb
 
 script:
   - git clone -q --branch=v$PODMAN_VERSION --single-branch https://github.com/containers/libpod/ $GOPATH/src/github.com/containers/libpod
